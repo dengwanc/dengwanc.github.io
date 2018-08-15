@@ -1,4 +1,4 @@
-# clickhouse 性能相关问题
+# clickhouse 相关问题
 
 ## `all left join` better than `any left join`
 ```
@@ -23,3 +23,6 @@ from fact.dau any left join (
 )  using(uid, d) prewhere today()-15<=d group by d order by d desc
 -- 302 sec
 ```
+
+## `union all` Cannot convert column v because it is non constant in source stream
+https://github.com/yandex/ClickHouse/issues/2507
