@@ -26,3 +26,7 @@ from fact.dau any left join (
 
 ## `union all` Cannot convert column v because it is non constant in source stream
 https://github.com/yandex/ClickHouse/issues/2507
+
+## clickhouse 导入 csv
+sudo scp tmp.csv ubuntu@0.0.0.0:/tmp
+cat /tmp/tmp.csv | clickhouse-client --host clickhouse6 -u dengwancheng --password ******* --query="INSERT INTO profile.tagmap FORMAT CSVWithNames"
