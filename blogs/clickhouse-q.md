@@ -30,3 +30,13 @@ https://github.com/yandex/ClickHouse/issues/2507
 ## clickhouse 导入 csv
 sudo scp tmp.csv ubuntu@0.0.0.0:/tmp
 cat /tmp/tmp.csv | clickhouse-client --host clickhouse6 -u dengwancheng --password ******* --query="INSERT INTO profile.tagmap FORMAT CSVWithNames"
+
+## 外部字典使用
+```
+select * from system.dictionaries where name = 'uri'
+select dictGetString('uri', 'behavior', tuple('/contact/visit_history'))
+```
+
+## redash 踩坑指南
+* 结果集不能出现同样的列名，否则不可用 Visualization(Angular 会报错)
+* redash 可以改列数据类型 [Visualization Editor] ⇒ [Type format]
