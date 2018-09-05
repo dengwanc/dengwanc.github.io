@@ -28,8 +28,10 @@ from fact.dau any left join (
 https://github.com/yandex/ClickHouse/issues/2507
 
 ## clickhouse 导入 csv
+```
 sudo scp tmp.csv ubuntu@0.0.0.0:/tmp
 cat /tmp/tmp.csv | clickhouse-client --host clickhouse6 -u dengwancheng --password ******* --query="INSERT INTO profile.tagmap FORMAT CSVWithNames"
+```
 
 ## 外部字典使用
 ```
