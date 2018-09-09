@@ -23,7 +23,7 @@ grad = zeros(size(theta));
 costItems = y .* log(sigmoid(X*theta)) + (1-y) .* log(1-sigmoid(X*theta));
 J = -1/m * sum(costItems);
 
-grad = 1/m * sum(X' * (sigmoid(X * theta)-y));
+grad = 1/m * (X' * (sigmoid(X * theta)-y));
 
 % =============================================================
 
