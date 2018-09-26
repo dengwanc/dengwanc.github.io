@@ -44,3 +44,12 @@ from userevent any left join (
 ) using(uid, d) prewhere event='upload' and today()-3<=d
 group by d
 ```
+
+## groupUniqArrayArray
+```sql
+SELECT 
+    key, 
+    groupUniqArrayArray(arrayValue)
+FROM table 
+GROUP BY key
+```
