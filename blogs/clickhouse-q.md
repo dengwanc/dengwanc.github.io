@@ -11,7 +11,7 @@ cat /tmp/tmp.csv | clickhouse-client --host clickhouse6 -u dengwancheng --passwo
 
 ## 外部字典使用
 ```
-select * from system.dictionaries where name = 'uri'
+select * from system.dictionaries where name in ('uri', 'users') format Vertical
 select dictGetString('uri', 'behavior', tuple('/contact/visit_history'))
 ```
 
@@ -53,3 +53,34 @@ SELECT
 FROM table 
 GROUP BY key
 ```
+
+## Clickhouse sharding and replicated([ref](https://zhuanlan.zhihu.com/p/37173180))
+```
+<shard>
+    <replica>
+        <host>10.9.0.12</host>
+    </replica>
+    <replica>
+        <host>10.9.0.11</host>
+    </replica>
+</shard>
+<shard>
+    <replica>
+        <host>10.9.0.13</host>
+    </replica>
+    <replica>
+        <host>10.9.0.14</host>
+    </replica>
+</shard>
+<shard>
+    <replica>
+        <host>10.9.0.15</host>
+    </replica>
+    <replica>
+        <host>10.9.0.16</host>
+    </replica>
+</shard>
+```
+* `<replica>` define 11 and 12 is replicated each other(11 crash 12 will work, 12 crash 11 will work)
+* ClickHouse sharding is for Distributed table query(dispatch to three Shard for querying, 12, 13, 15 will work)
+* ClikkHouse Replicaed table is only depend on ZooKeeper(path, specifically)
