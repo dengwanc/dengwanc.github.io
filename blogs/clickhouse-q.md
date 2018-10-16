@@ -54,7 +54,8 @@ FROM table
 GROUP BY key
 ```
 
-## clickhouse sharding and replicated([ref](https://zhuanlan.zhihu.com/p/37173180))
+## clickhouse sharding and replicated
+> reference https://zhuanlan.zhihu.com/p/37173180
 ```
 <shard>
     <replica>
