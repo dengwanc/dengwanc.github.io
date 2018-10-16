@@ -81,6 +81,6 @@ GROUP BY key
     </replica>
 </shard>
 ```
-* `<replica>` define 11 and 12 is replicated each other(11 crash 12 will work, 12 crash 11 will work)
+* `<replica>` define 11 and 12 is backup each other(11 crash 12 will work, 12 crash 11 will work)
 * ClickHouse sharding is for Distributed table query(dispatch to three Shard for querying, 12, 13, 15 will work)
-* ClikkHouse Replicaed table is only depend on ZooKeeper(path, specifically)
+* ClikkHouse Replicaed table data only depend on ZooKeeper(path, specifically)
