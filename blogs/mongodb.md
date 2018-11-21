@@ -1,12 +1,14 @@
-## enable user auth
+## Enable Mongodb Authentication
+
 > https://medium.com/@raj_adroit/mongodb-enable-authentication-enable-access-control-e8a75a26d332
 
-1 create admin user for get root access
-2 create your_db user
-3 add the security.authorization setting
-4 restart mongod
+- create admin user for get root access
+- create your_db user
+- add the security.authorization setting
+- restart mongod
 
 > https://github.com/docker-library/mongo/issues/174
+
 ```
 注意!!! 在 docker 里
 MONGO_INITDB_ROOT_USERNAME
