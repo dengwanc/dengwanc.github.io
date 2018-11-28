@@ -85,3 +85,15 @@ GROUP BY key
 * `<replica>` define 11 and 12 is backup each other(11 crash 12 will work, 12 crash 11 will work)
 * ClickHouse sharding is for Distributed table query(dispatch to three Shard for querying, 12, 13, 15 will work)
 * ClikkHouse Replicaed table data only depend on ZooKeeper(path, specifically)
+
+## 建表时如何指定 partition
+
+苏联专家有过讨论 https://github.com/yandex/ClickHouse/issues/2378
+1. 建议按照时间纬度做 partition
+2. 主键和 partition 没有关系
+3. 一张表的 partition 个数建议不要超过 1000，主要是partition 太多会引起文件太多的问题
+以下是我总结的经验，单位是年（year）
+[1-3)      => 使用 d 级别
+[3-10)     => 使用 week 级别
+[10-20)    => 使用 month 级别
+[20, 100)  => 使用 quarter 级别
