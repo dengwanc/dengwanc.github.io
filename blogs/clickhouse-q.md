@@ -43,6 +43,19 @@ from userevent any left join (
     ) and today()-3<=d
 ) using(uid, d) prewhere event='upload' and today()-3<=d
 group by d
+
+-- run in ch9
+-- mysqldump.usess is big table
+-- mysqldump.work_tags1  is small table
+-- take 30s
+select count() from mysqldump.work_tags1 any inner join (
+    select uid from mysqldump.users
+) using uid
+
+-- this sql fast than above 30 times
+select count() from mysqldump.users any inner join (
+    select uid from mysqldump.work_tags1
+) using uid
 ```
 
 ## groupUniqArrayArray
