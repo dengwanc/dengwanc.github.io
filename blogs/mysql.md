@@ -4,7 +4,7 @@
 
 * 应根据要执行的查询语句来设计 Schema
 * 选用简单的小的的数据类型
-* NULL 表示虚位以待
+* NULL 表示虚位以待 ?
 * 确定合适的大类型: 数字, 字符串, 时间, 二进制
     * 数字: tinyint, int, bigint, decimal(变长)
     * 字符串: char, varchar(变长), text(变长)
