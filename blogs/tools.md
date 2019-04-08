@@ -3,7 +3,7 @@
 dig +trace maimai.cn
 ```
 
-## Key Properties of OLAP Scenario
+## Key Properties of OLAP Scenario (ClickHouse)
 
 * The vast majority of requests are for read access.(主要是读)
 * Data is ingested in fairly large batches (> 1000 rows), not by single rows;(数据批量入库)

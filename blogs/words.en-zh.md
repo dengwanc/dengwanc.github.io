@@ -1,6 +1,6 @@
 * independent variable 自变量
 * pie chart 扇形图
-* histogram 直方图📊
+* histogram 直方图
 * symmetric 对称的
 * polynomial 多项式
 * constant term 常数项
