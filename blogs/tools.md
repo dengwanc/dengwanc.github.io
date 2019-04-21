@@ -3,15 +3,42 @@
 dig +trace maimai.cn
 ```
 
-## Key Properties of OLAP Scenario (ClickHouse)
+## Editor
+- control + p 向上移动一行(previous
+- control + n 向下移动一行(next
+- control + a 行首(ahead
+- control + e 行尾(end
+- Control-H 删除光标前面的字符
+- Control-D 删除光标后面的字符
+- control + k 删除到行尾
+- <del>command + delete 删除到行首</del>
+- Only For VS Code
+	* command + shfit + k 删除行
+	* command + Enter 向下插入行
+	* command + shift + Enter 向上插入行
+	* command + shift + \ 跳转到匹配的括号
+	* command + Shift + L 选中所有与当前选中内容相同部分
+	* control + - 后退
+	* control + shift + - 前进
+	* option + delete 删除前一个单词
 
-* The vast majority of requests are for read access.(主要是读)
-* Data is ingested in fairly large batches (> 1000 rows), not by single rows;(数据批量入库)
-* Data is added to the DB but is not modified.(很少更新数据)
-* For reads, quite a large number of rows are extracted from the DB, but only a small subset of columns.(只选取一部分列查询分析)
-* For simple queries, latencies around 50 ms are allowed.(要求很快)
-* Column values are fairly small: numbers and short strings (for example, 60 bytes per URL).(列存的数据size不大)
-* Requires high throughput when processing a single query (up to billions of rows per second per server).(高吞吐量)
-* Transactions are not necessary.(对事物没有要求)
-* Low requirements for data consistency.(对数据库一致性要求低)
-* A query result is significantly smaller than the source data. In other words, data is filtered or aggregated, so the result fits in a single server's RAM.(查询时把数据放在内存里)
+## 名词
+* independent variable 自变量
+* pie chart 扇形图
+* histogram 直方图
+* symmetric 对称的
+* polynomial 多项式
+* constant term 常数项
+* factoring 因式分解
+* weighted average
+* median 中位数
+* mode 众数
+* varaiance 方差
+* parallel 平行
+* square root Math.sqrt
+* real number 实数
+* origin 原点
+* exponent 指数
+* equation 方程
+* solid surface line point 体,面,线,点
+* population 总体
