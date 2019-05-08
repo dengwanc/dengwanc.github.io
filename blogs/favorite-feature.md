@@ -10,3 +10,13 @@
 * 支持模块或命名空间 Python, Java
 * 支持 async await C#, JavaScript
 * 支持字面常量构建 Array, Map, Set JavaScript, Python
+
+> 我喜欢的编程语言
+
+* JavaScript (es6)
+* Java
+* C
+
+> 我喜欢的技术发明
+
+* Web 技术
