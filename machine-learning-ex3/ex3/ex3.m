@@ -33,7 +33,7 @@ num_labels = 10;          % 10 labels, from 1 to 10
 fprintf('Loading and Visualizing Data ...\n')
 
 load('ex3data1.mat'); % training data stored in arrays X, y
-m = size(X, 1);
+m = size(X, 1); % m = size(X,dim); dim=1返回行数，dim=2返回列数
 
 % Randomly select 100 data points to display
 rand_indices = randperm(m);

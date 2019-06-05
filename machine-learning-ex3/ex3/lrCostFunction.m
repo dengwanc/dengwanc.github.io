@@ -40,10 +40,13 @@ grad = zeros(size(theta));
 
 
 
+h = sigmoid(X * theta);
+thetaRegular = [0; theta(2:end)];
+JRegular = lambda / (2*m) * sum(thetaRegular.^2);
+J = (1/m) * sum(-y .* log(h) - (1 - y) .* log(1 - h)) + JRegular;
 
-
-
-
+gradRegular = lambda / m * thetaRegular;
+grad = (1/m) * X' * (h - y) + gradRegular;
 
 % =============================================================
 
