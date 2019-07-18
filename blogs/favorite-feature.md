@@ -20,6 +20,8 @@
 > 我喜欢的技术发明
 
 * Web 技术
+* MapReduce
+* ClickHouse
 
 > 我喜欢的抽象特性
 
