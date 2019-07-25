@@ -137,3 +137,6 @@ GROUP BY key
 * Transactions are not necessary.(对事物没有要求)
 * Low requirements for data consistency.(对数据库一致性要求低)
 * A query result is significantly smaller than the source data. In other words, data is filtered or aggregated, so the result fits in a single server's RAM.(查询时把数据放在内存里)
+
+> 已知问题
+* MySQL Engine 有泄漏数据库密码的风险 https://github.com/yandex/ClickHouse/issues/3311
