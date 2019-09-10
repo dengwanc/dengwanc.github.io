@@ -111,19 +111,50 @@ create table tmp.session_orderby_ms
 )
 Engine=MergeTree order by (uid, timestamp_ms);
 
+create table tmp.session_sliceby_30min
+(
+  uid Int64,
+  timestamp_ms UInt64,
+  url StringWithDictionary,
+  platform StringWithDictionary,
+  source StringWithDictionary,
+  city StringWithDictionary,
+  brand StringWithDictionary,
+  purchase_quantity UInt16,
+  price Float64,
+  session_id UInt16,
+  ts MATERIALIZED toDateTime(timestamp_ms/1000),
+  d MATERIALIZED toDate(ts)
+)
+Engine=MergeTree partition by d order by (uid, session_id)
 -- 按 uid 为窗口，进行 session 划分，得到 session_sliceby_30min 表
 -- 关于跨天的思考：用 uid, session_id 分组，天取 min(d) 即可
 -- 关于指定开始事件的思考：需要阅读论文，指定开始事件是否在生产环境中有大量应用，研究开始事件具体是怎么运作的
 -- 注意：在生产环境中产生 session_id 应该用 date-tag 的形式，这里跑全量数据所以可以直接用 tag=session_id
 -- 注意：生成 session_id 后，需要把原先的各种维度恢复，即 Array Join 回去
-with
-    groupArray(timestamp_ms) as timeseries,
-    arrayDifference(timeseries) as diff,
-    arrayMap(x -> x >= 1800000, diff) as segments,
-    arrayCumSum(segments) as session_tag
-select
-    uid, segments, session_tag, diff, groupArray(ts)
-from tmp.session_orderby_ms
-group by uid
-having uid = 14230773428449917
+-- 注意：此表转化需要较长事件，需要优化，并发读写，更好的写法
+insert into tmp.session_sliceby_30min
+select uid,
+  item.1.1 as timestamp_ms,
+  item.1.2 as url,
+  item.1.3 as platform,
+  item.1.4 as source,
+  item.1.5 as city,
+  item.1.6 as brand,
+  item.1.7 as purchase_quantity,
+  item.1.8 as price,
+  item.2 as session_id
+from (
+  with
+      groupArray(timestamp_ms) as timeseries,
+      arrayDifference(timeseries) as diff,
+      arrayMap(x -> x >= 1800000, diff) as segments,
+      arrayCumSum(segments) as session_tag
+  select
+      groupArray((timestamp_ms, url, platform, source, city, brand, purchase_quantity, price)) as dimensions,
+      arrayMap(i -> (dimensions[i], session_tag[i]), arrayEnumerate(session_tag)) as mixed,
+      uid, segments, session_tag, diff
+  from tmp.session_orderby_ms
+  group by uid
+) array join mixed as item
 ```
