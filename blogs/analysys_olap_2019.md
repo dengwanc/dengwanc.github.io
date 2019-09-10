@@ -129,6 +129,7 @@ create table tmp.session_sliceby_30min
 Engine=MergeTree partition by d order by (uid, session_id)
 -- 按 uid 为窗口，进行 session 划分，得到 session_sliceby_30min 表
 -- 关于跨天的思考：用 uid, session_id 分组，天取 min(d) 即可
+-- 关于跨天的思考：现实中如果支持跨天，也是只支持到第二天前一个小时左右，因为 ETL 时间很可能是夜里 2 点以后
 -- 关于指定开始事件的思考：需要阅读论文，指定开始事件是否在生产环境中有大量应用，研究开始事件具体是怎么运作的
 -- 注意：在生产环境中产生 session_id 应该用 date-tag 的形式，这里跑全量数据所以可以直接用 tag=session_id
 -- 注意：生成 session_id 后，需要把原先的各种维度恢复，即 Array Join 回去
