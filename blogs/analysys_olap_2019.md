@@ -423,3 +423,82 @@ order by dt, jumper_ratio desc
 │ 2019-01-07 │ https://ark.analysys.cn/unsubscribeGoods │       27721 │      12146 │    0.4381515818332672 │
 └────────────┴──────────────────────────────────────────┴─────────────┴────────────┴───────────────────────┘
 ```
+
+### 超时时间30分钟+跨天的session切割规则+指定开始事件
+```sql
+create table tmp.session_with_start
+(
+  uid Int64,
+  timestamp_ms UInt64,
+  url StringWithDictionary,
+  platform StringWithDictionary,
+  source StringWithDictionary,
+  city StringWithDictionary,
+  brand StringWithDictionary,
+  purchase_quantity UInt16,
+  price Float64,
+  session_id UInt16,
+  ts MATERIALIZED toDateTime(timestamp_ms/1000),
+  d MATERIALIZED toDate(ts)
+)
+Engine=MergeTree partition by d order by (uid, session_id)
+
+insert into tmp.session_with_start
+select uid,
+  item.1.1 as timestamp_ms,
+  item.1.2 as url,
+  item.1.3 as platform,
+  item.1.4 as source,
+  item.1.5 as city,
+  item.1.6 as brand,
+  item.1.7 as purchase_quantity,
+  item.1.8 as price,
+  item.2 as session_id
+from (
+  with
+      groupArray(timestamp_ms) as timeseries,
+      groupArray(url) as eventseries,
+      arrayDifference(timeseries) as diff,
+      arrayMap(i -> diff[i] >= 1800000 or eventseries[i] in ('https://ark.analysys.cn/login'), arrayEnumerate(diff)) as segments,
+      arrayCumSum(segments) as session_tag
+  select
+      groupArray((timestamp_ms, url, platform, source, city, brand, purchase_quantity, price)) as dimensions,
+      arrayMap(i -> (dimensions[i], session_tag[i]), arrayEnumerate(session_tag)) as mixed,
+      uid, segments, session_tag, diff
+  from tmp.session_orderby_ms
+  group by uid
+) array join mixed as item
+
+-- 包含购物车行为的会话总数
+select dt, uniqExactIf(uid, session_id, hasAddCart) session_cnt
+from (select uid, session_id, min(d) dt, anyIf(1, url='https://ark.analysys.cn/addCart') as hasAddCart from tmp.session_with_start group by uid, session_id)
+group by dt
+┌─────────dt─┬─session_cnt─┐
+│ 2019-01-01 │      470197 │
+│ 2019-01-02 │      466860 │
+│ 2019-01-03 │      461421 │
+│ 2019-01-04 │      805353 │
+│ 2019-01-05 │      798422 │
+│ 2019-01-06 │      802223 │
+│ 2019-01-07 │      807185 │
+└────────────┴─────────────┘
+
+-- 人均访问深度
+select dt,
+    uniqExact(uid, session_id) as uv,
+    sum(pv) / uv as avg_visit_depth
+from (
+    select uid, min(d) dt, session_id, uniqExact(url) as pv
+    from tmp.session_sliceby_30min group by uid, session_id
+) 
+group by dt
+┌─────────dt─┬──────uv─┬────avg_visit_depth─┐
+│ 2019-01-01 │  415983 │   9.87817771399312 │
+│ 2019-01-02 │  396952 │ 10.060012293677826 │
+│ 2019-01-03 │  389109 │ 10.108779288065811 │
+│ 2019-01-04 │ 4632336 │  2.175055522742737 │
+│ 2019-01-05 │ 4527106 │ 2.2012550622848237 │
+│ 2019-01-06 │ 4561181 │  2.199155438032387 │
+│ 2019-01-07 │ 4683356 │ 2.1623598547708096 │
+└────────────┴─────────┴────────────────────┘
+```
