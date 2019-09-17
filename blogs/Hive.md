@@ -96,6 +96,16 @@ create temporary macro SIGMOID (x double) 1.0 / (1.0 + exp(-x));
 select SIGMOID(2);
 ```
 
+### Hive 实践
+
+1. 防止意外的数据删除或意外的删除表
+2. 运行两个独立的 Hadoop 集群，主集群是生产环境，作业比较严格，同时把数据复制到研究环境，作业比较宽松
+3. 备份进程会不断的扫描需要备份的目录结构
+4. 计算 distinct 太大时，可以做中间表，只存 distinct 数据，但一定要比原表小的多才有意义
+5. Hive 社区成员的视角(16 Mapper 和一个本地I/O任务相当, 减少分割大小, count(1) 作为调优基准)
+
+### Hive 总结
+
 ### Hive 使用问题
 
 1. 每次加载 UDF 函数很麻烦 => .hiverc
