@@ -1,4 +1,12 @@
 
+### 部署 ClickHouse
+1. https://clickhouse.yandex/docs/en/getting_started/#from-rpm-packages 注意网络问题
+2. 安装 Zookeeper
+3. config.xml
+  3.1 集群配置
+  3.2 TCP/HTTP 端口监听
+  3.3 配置 ZK
+
 ### Define schema
 
 ```sql
