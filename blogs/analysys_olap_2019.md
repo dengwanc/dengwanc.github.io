@@ -6,7 +6,8 @@
 -- 1. 导入原始数据，中间表皆从此表生成
 -- 2. 计算默认 session_id 相关统计
 -- 注意：正式比赛时需要做成分布式表，按 uid 分片
-create table tmp.session_raw
+drop table if exists tmp.session_raw_local on cluster ch_cluster2;
+create table if not exists tmp.session_raw_local on cluster ch_cluster2
 (
   uid Int64,
   timestamp_ms UInt64,
@@ -24,11 +25,14 @@ create table tmp.session_raw
   d MATERIALIZED toDate(ts)
 )
 Engine=MergeTree partition by d order by (uid, session_id);
+
+create table if not exists tmp.session_raw AS tmp.session_raw_local Engine=Distributed(ch_cluster2, tmp, session_raw_local, uid);
 ```
 
 ### Load data
 ```bash
 cat session.dat | clickhouse-client --host clickhouse15 -u $USER --password $PWD --query="INSERT INTO tmp.session_raw FORMAT TabSeparated"
+cat demo_olap.dat | clickhouse-client --query="INSERT INTO tmp.session_raw FORMAT TabSeparated"
 ```
 
 ### 默认 Session
@@ -90,7 +94,8 @@ from (
 ### 超时时间30分钟+跨天的session切割规则
 
 ```sql
-create table tmp.session_sliceby_30min
+drop table if exists tmp.session_sliceby_30min_local on cluster ch_cluster2;
+create table tmp.session_sliceby_30min_local on cluster ch_cluster2
 (
   uid Int64,
   timestamp_ms UInt64,
@@ -106,6 +111,8 @@ create table tmp.session_sliceby_30min
   d MATERIALIZED toDate(ts)
 )
 Engine=MergeTree partition by d order by (uid, session_id);
+
+create table if not exists tmp.session_sliceby_30min AS tmp.session_sliceby_30min_local Engine=Distributed(ch_cluster2, tmp, session_sliceby_30min_local, uid);
 -- 按 uid 为窗口，进行 session 划分，得到 session_sliceby_30min 表
 -- 关于跨天的思考：用 uid, session_id 分组，天取 min(d) 即可
 -- 关于跨天的思考：现实中如果支持跨天，也是只支持到第二天前一个小时左右，因为 ETL 时间很可能是夜里 2 点以后
@@ -115,8 +122,7 @@ Engine=MergeTree partition by d order by (uid, session_id);
 -- 注意：此表转化需要较长事件，需要优化，并发读写，更好的写法
 -- TEST
 -- select uid, url, ts, session_id from tmp.session_sliceby_30min where uid=-4863761402216521686;
-truncate table tmp.session_sliceby_30min;
-insert into tmp.session_sliceby_30min
+insert into tmp.session_sliceby_30min_local
 select uid,
   item.1.1 as timestamp_ms,
   item.1.2 as url,
@@ -134,7 +140,7 @@ from (
     arrayDifference(arrayMap(x -> x.1, sorted)) as diff,
     arrayCumSum(arrayMap(x -> x >= 1800000, diff)) as session_tag,
     arrayMap(i -> (sorted[i], session_tag[i]), arrayEnumerate(session_tag)) as mixed
-  from tmp.session_raw
+  from tmp.session_raw_local
   group by uid
 ) array join mixed as item;
 
@@ -223,18 +229,6 @@ select uid,
   item.1.8 as price,
   item.2 as session_id
 from (
-  -- with
-  --     groupArray(timestamp_ms) as timeseries,
-  --     groupArray(url) as eventseries,
-  --     arrayDifference(timeseries) as diff,
-  --     arrayMap(i -> diff[i] >= 1800000 or eventseries[i] in ('https://ark.analysys.cn/login'), arrayEnumerate(diff)) as segments,
-  --     arrayCumSum(segments) as session_tag
-  -- select
-  --     groupArray((timestamp_ms, url, platform, source, city, brand, purchase_quantity, price)) as dimensions,
-  --     arrayMap(i -> (dimensions[i], session_tag[i]), arrayEnumerate(session_tag)) as mixed,
-  --     uid, segments, session_tag, diff
-  -- from tmp.session_orderby_ms
-  -- group by uid
   select uid,
     groupArray((timestamp_ms, url, platform, source, city, brand, purchase_quantity, price)) as dimensions,
     arraySort(x -> x.1, dimensions) as sorted,
