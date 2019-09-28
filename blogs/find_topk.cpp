@@ -41,4 +41,6 @@
  * 1. 如果数据分布不确定怎么办 ? 考虑两个极端 1. 所有数据都是一样的 2. 所有数据都不一样
  * 2. 如果要任意 top 数怎么办 ? 
  */
+const auto RECORD_BYTES = 20; // assume 20 bytes for every url
+
 
