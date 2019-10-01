@@ -49,8 +49,8 @@ clang++ -std=c++11 main.cpp && ./a.out
 
 ### 问题记录
 
-1. C++ 读文件 to int
+1. C++ 读文件 to int https://stackoverflow.com/questions/7868936/read-file-line-by-line-using-ifstream-in-c
 2. C++ STL 容器，在函数结束时会释放内存吗
 3. C++ 字符串格式化有库吗
-4. C++11 iterate Map
+4. C++11 iterate Map https://stackoverflow.com/questions/6963894/how-to-use-range-based-for-loop-with-stdmap
 5. C++ 引用怎么用

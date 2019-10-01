@@ -101,10 +101,8 @@ list<Reducer> hashAndPartition(string filename, unsigned int reducer_num)
     std::hash<T> hashx; // use STL lib hash function
     string line;
     ifstream infile(filename);
-    while (getline(infile, line)) {
-        istringstream iss(line);
-        T key;
-        iss >> key;
+    T key;
+    while (infile >> key) {
         auto reducer_id = hashx(key) % reducer_num;
         wstreams[reducer_id] << key << endl;
         counts[reducer_id] += 1;
@@ -146,13 +144,12 @@ minheap<T> findTopK(string filename, unsigned int k)
     map<T, unsigned int> keymap;
     string line;
     ifstream infile(filename);
-    while (getline(infile, line)) {
+    T key;
+    while (infile >> key) {
         if (keymap.size() > BLOCK_SIZE) {
             throw std::range_error(errmsg("memory overflow", BLOCK_SIZE));
         }
-        istringstream iss(line);
-        T key;
-        iss >> key;
+        
         if (keymap.find(key) == keymap.end()) {
             keymap[key] = 1;
         } else {
@@ -163,9 +160,9 @@ minheap<T> findTopK(string filename, unsigned int k)
     // select the top k max frequency key
     minheap<T> result;
     int c = 0;
-    for (auto iter = keymap.begin(); iter != keymap.end(); ++iter) {
-        T key =  iter->first;
-        auto count = iter->second;
+    for (const auto& iter: keymap) {
+        T key =  iter.first;
+        auto count = iter.second;
         c += count;
         keepTopK((FrequencyStats<T>){key, count}, result, k);
     }
@@ -225,7 +222,7 @@ minheap<T> runJob(string filename, unsigned int k)
 };
 
 template <typename T>
-void printTopK(minheap<T> finalTopK) 
+void printTopK(minheap<T> finalTopK)
 {
     int i = 0;
     while (!finalTopK.empty() && i++ < 100) {
