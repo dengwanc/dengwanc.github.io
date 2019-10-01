@@ -44,6 +44,13 @@
 
 ### 运行
 ```
-clang++ -std=c++11 main.cpp
-./a.out
+clang++ -std=c++11 main.cpp && ./a.out
 ```
+
+### C++ 问题
+
+1. C++ 读文件 to int
+2. C++ STL 容器，在函数结束时会释放内存吗
+3. C++ 字符串格式化有库吗
+4. C++11 iterate Map
+5. C++ 引用怎么用

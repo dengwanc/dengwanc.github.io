@@ -194,7 +194,7 @@ template <typename T>
 minheap<T> tryFindTopK(string filename, unsigned int k)
 {
     try {
-        return findTopK<T>(filename, k);
+        return findTopK<T>(filename, k); // memory usage here
     } catch(std::range_error e) {
         cout << filename << ": " << e.what() << endl;
         return runJob<T>(filename, k); // if too many rows just rerun job again
@@ -240,3 +240,9 @@ int main()
     auto finalTopK = runJob<string>("/Users/dengwanc/Desktop/c-lang/c-lang/output/test_url", 100);
     printTopK(finalTopK);
 }
+
+// todo
+// 1. minheap2array
+// 2. 测试 10 GB 数据
+// 3. 测试 Int 数据
+// 4. 支持 main 参数

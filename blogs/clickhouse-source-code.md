@@ -16,3 +16,11 @@
 5. 列式存储是如何转换成行的
 6. Replacing 引擎如何实现的
 
+### C++ 编码习惯
+0. CodeStyle 保持一致性有利于可读性/并且有利于搜索
+1. const 永远在类型左边
+2. 用 static_cast 做类型转换
+3. 写注释有利于反思这段代码的正确性/是否需要/设计错误
+4. English Only
+5. `///` and `/**  */` are considered "documentation"
+6. 大多数情况推荐使用 const 引用
