@@ -163,7 +163,7 @@ minheap<T> findTopK(string filename, unsigned int k)
     // select the top k max frequency key
     minheap<T> result;
     int c = 0;
-    for(auto iter = keymap.begin(); iter != keymap.end(); ++iter) {
+    for (auto iter = keymap.begin(); iter != keymap.end(); ++iter) {
         T key =  iter->first;
         auto count = iter->second;
         c += count;
@@ -173,7 +173,7 @@ minheap<T> findTopK(string filename, unsigned int k)
     return result;
 };
 
-/// pre is actually modifyed
+/// pre is actually modified
 template <typename T>
 minheap<T> mergeTopK(minheap<T>& pre, minheap<T> cur, unsigned int k)
 {
