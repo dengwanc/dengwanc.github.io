@@ -1,56 +1,56 @@
-
 #include <stdexcept>
 #include <string>
 #include <iostream>
 #include <sstream>
 #include <fstream>
 #include <list>
-#include <iterator>
 #include <map>
 #include <queue>
 #include <sys/stat.h>
-#include <ctime>
-#include <iomanip>
-#include <functional>
-#include "topk.h"
 
 using namespace std;
 
 /**
- * Type modules
+ * Type Modules
  */
 
-/// 被分块的文件
-struct Reducer {
+/// actually split file
+struct SplitFile {
     string filename;
     unsigned int rows;
 };
 
-/// 频次统计信息
+/// frequency for the key
 template <typename T>
 struct FrequencyStats {
     T key;
     unsigned int count;
 };
 
+// define minheap comparation
 template <typename T>
 class Compare {
 public: bool operator() (FrequencyStats<T> a, FrequencyStats<T> b) { return a.count > b.count; }
 };
 
-/// 最小堆
+/// minheap data-struct implement by priority_queue
 template<typename T>
 using minheap = priority_queue<FrequencyStats<T>, std::vector<FrequencyStats<T>>, Compare<T>>;
 
 /**
- * helper modules
+ * Helper Modules
  */
-string errmsg(const char *msg, int code)
+
+/// concat str1 + str2 + str(int)
+string concatssi(string s1, string s2, int code)
 {
     std::ostringstream oss;
-    oss << msg << "::code=" << code;
+    oss << s1 << s2 << code;
     return oss.str();
-}
+};
+
+string errmsg(const char *msg, int code) { return concatssi(msg, "::code=", code); }
+string genfilename(string org, int lv) { return concatssi(org, "_", lv); };
 
 long long getFileSize(string filename)
 {
@@ -63,32 +63,28 @@ long long getFileSize(string filename)
     }
 };
 
-string genfilename(string org, int lv)
-{
-    std::ostringstream oss;
-    oss << org << "_" << lv;
-    return oss.str();
-};
-
 
 /**
- * CONST modules
+ * CONST Modules
  */
-const auto RECORD_SIZE = 32; // bytes per url
-const auto BLOCK_SIZE = 5 * 10000; // rows number
+
+const auto MEMORY_LIMIT = 1024 * 1024 * 10;
+const auto RECORD_SIZE = 32; // bytes per url approx
+const auto BLOCK_SIZE = MEMORY_LIMIT / RECORD_SIZE; // rows number
 
 /**
- * Interfaces
+ * Application Modules
  */
+
 unsigned int getReducerNumber(long long input_bytes)
 {
     return (unsigned int)(input_bytes / RECORD_SIZE / BLOCK_SIZE + 1);
 };
 
 template <typename T>
-list<Reducer> hashAndPartition(string filename, unsigned int reducer_num)
+list<SplitFile> hashAndPartition(string filename, unsigned int reducer_num)
 {
-    list<Reducer> result;
+    list<SplitFile> result;
     
     // open every file and set count=0
     unsigned int counts[reducer_num];
@@ -102,7 +98,7 @@ list<Reducer> hashAndPartition(string filename, unsigned int reducer_num)
     string line;
     ifstream infile(filename);
     T key;
-    while (infile >> key) {
+    while (infile >> key) { // if empty line happened, will be skipped
         auto reducer_id = hashx(key) % reducer_num;
         wstreams[reducer_id] << key << endl;
         counts[reducer_id] += 1;
@@ -114,7 +110,7 @@ list<Reducer> hashAndPartition(string filename, unsigned int reducer_num)
         wstreams[i].close();
         if (counts[i]) {
             cout << "[info] " << genfilename(filename, i) << ": " << counts[i] << endl; // log hashed file info
-            result.push_back((Reducer){genfilename(filename, i), counts[i]});
+            result.push_back((SplitFile){genfilename(filename, i), counts[i]});
         }
     }
     
@@ -182,7 +178,7 @@ minheap<T> mergeTopK(minheap<T>& pre, minheap<T> cur, unsigned int k)
 };
 
 
-/// should in the header file
+/// hoisting function define
 template <typename T>
 minheap<T> runJob(string filename, unsigned int k);
 
@@ -191,26 +187,33 @@ template <typename T>
 minheap<T> tryFindTopK(string filename, unsigned int k)
 {
     try {
-        return findTopK<T>(filename, k); // memory usage here
+        // main memory usage and 1 G limitation here
+        // many uniq values hashed to a same file is extremely low probability event
+        // if the file is too big, it must be lots of same data
+        // so we just try to read it into memory
+        return findTopK<T>(filename, k);
     } catch(std::range_error e) {
         cout << filename << ": " << e.what() << endl;
         return runJob<T>(filename, k); // if too many rows just rerun job again
     }
 };
 
-/**
- * find topK Job entry point
- */
+/// EntryPoint
 template <typename T>
 minheap<T> runJob(string filename, unsigned int k)
 {
+    // step 1 hash big file to small file
     cout << "\n[info] starting hash and partition...\n" << endl;
     const auto reducer_num = getReducerNumber(getFileSize(filename));
     const auto reducers = hashAndPartition<T>(filename, reducer_num);
+    
+    // step 2 find the top k values for every small file
+    cout << "\n[info] starting find top k...\n" << endl;
     minheap<T> pre;
     minheap<T> cur;
-    cout << "\n[info] starting find top k...\n" << endl;
     for (auto reducer: reducers) {
+        // step 3 if the "small" file is big enough
+        // take the file as big file too, run another Job
         cur = tryFindTopK<T>(reducer.filename, k);
         if (pre.empty()) {
             pre = cur;
