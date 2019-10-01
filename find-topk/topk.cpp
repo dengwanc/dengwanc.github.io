@@ -235,7 +235,7 @@ void printTopK(minheap<T> finalTopK)
     }
 }
 
-int main() 
+int main()
 {
     auto finalTopK = runJob<string>("/Users/dengwanc/Desktop/c-lang/c-lang/output/test_url", 100);
     printTopK(finalTopK);
@@ -246,3 +246,5 @@ int main()
 // 2. 测试 10 GB 数据
 // 3. 测试 Int 数据
 // 4. 支持 main 参数
+// 5. 这个代码在生产环境中敢不敢用
+// 6. 这个代码在分布式系统中可不可复用

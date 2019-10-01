@@ -24,3 +24,11 @@
 4. English Only
 5. `///` and `/**  */` are considered "documentation"
 6. 大多数情况推荐使用 const 引用
+7. 内存管理
+    7.1 Library Code can ONLY USE DELETE
+    7.2 Application Code DO NOT USE DELETE
+    7.3 place an object on the stack
+    7.4 make object as a member of another class
+    7.5 For a large number of small objects, use containers
+    7.6 For small number of objects that reside in the heap, use shared_ptr/unique_ptr
+    
