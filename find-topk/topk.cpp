@@ -27,7 +27,7 @@ struct FrequencyStats {
     unsigned int count;
 };
 
-// define minheap comparation
+/// define minheap comparation
 template <typename T>
 class Compare {
 public: bool operator() (FrequencyStats<T> a, FrequencyStats<T> b) { return a.count > b.count; }
@@ -246,7 +246,7 @@ minheap<T> tryFindTopK(string filename, unsigned int k)
         return findTopK<T>(filename, k);
     } catch(std::range_error e) {
         cout << filename << ": " << e.what() << endl;
-        return runJob<T>(filename, k); // if too many rows just rerun job again
+        return runJob<T>(filename, k); // if too many rows, just run another job
     }
 };
 
