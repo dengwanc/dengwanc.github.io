@@ -44,7 +44,17 @@
 
 ### 运行
 ```
-clang++ -std=c++11 main.cpp && ./a.out
+clang++ -std=c++11 main.cpp -o topk 
+# usage
+./topk
+
+# example
+# find the top 50 url and memory limit is 5
+./topk 50 test_url 5 
+
+# production
+# fine the top 100 url and memory limit is 1G
+./topk $100G_big_file
 ```
 
 ### 问题记录
