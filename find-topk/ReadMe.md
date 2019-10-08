@@ -49,7 +49,7 @@ clang++ -std=c++11 topk.cpp -o topk
 ./topk
 
 # example
-# find the top 50 url and memory limit is 5
+# find the top 50 url and memory limit is 5M
 ./topk 50 test_url 5
 
 # production
