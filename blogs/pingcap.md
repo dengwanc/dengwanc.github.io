@@ -19,8 +19,10 @@
 6. Hack 精神举个例子
 7. MySQL binlog
 8. Kafka 的特点
+9. 基本的 DDL、DML 语句和事务的基本常识/MySQL 数据备份、主从同步的原理/RPC 工作原理
 
 1. 不是所有人都是 Google
 2. 不要走 Oracle 老路
 
 3. 你有什么想问的专门针对 PingCAP 二面/三面/四面
+3. 挑战是什么
