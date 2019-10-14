@@ -20,7 +20,9 @@
 7. MySQL binlog
 8. Kafka 的特点
 
-1. 不是所有人都是 Google
-2. 不要走 Oracle 老路
 
 3. 你有什么想问的专门针对 PingCAP 二面/三面/四面
+3. For CTO
+1. 不是所有人都是 Google
+2. 不要走 Oracle 老路
+3. 从分布式的角度考虑管理
