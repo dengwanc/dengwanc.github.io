@@ -1,11 +1,13 @@
 
 ### 部署 ClickHouse
 1. https://clickhouse.yandex/docs/en/getting_started/#from-rpm-packages 注意网络问题
-2. 安装 Zookeeper
-3. config.xml
+2. 安装 Java https://www.liquidweb.com/kb/install-java-8-on-centos-7/
+2. 安装 Zookeeper http://zookeeper.apache.org/doc/r3.5.5/zookeeperStarted.html
+3. config.xml 
   3.1 集群配置
   3.2 TCP/HTTP 端口监听
   3.3 配置 ZK
+  3.4 文件权限问题 chown -R clickhouse /etc/clickhouse-server/config.xml
 
 ### Define schema
 
