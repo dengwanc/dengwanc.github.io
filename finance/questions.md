@@ -18,6 +18,7 @@ D. 法律知识 => 税收相关、法院拍卖相关
 + 美金
 + 房地产 location location and location
 + 债券
++ 期货
 + 专利、版权
 
 好的资产有三个特点
