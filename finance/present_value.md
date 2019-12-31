@@ -45,6 +45,9 @@ PV = C/r
 PV = C/r - (C/r) / (1+r)^T # works for mortgage valuation too
 ```
 * Compounding
+```
+FV = PV(1 + r)^T
+```
 * Inflation
 ```
 the purchasing power of your money can vary overtime
