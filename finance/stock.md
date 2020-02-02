@@ -14,7 +14,7 @@
     - Pt: E1(D1)/(1+r1) + E2(D2)/(1+r2) + ...
     - Pt: D / r
     - Pt: D / (r - g)
-    - r : dividend_yield + growth_rate
+    - r : dividend_yield + growth_rate (estimate rate of return)
 
 4. Reason for buy a stock
     - divident
