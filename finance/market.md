@@ -43,3 +43,7 @@
 - finance and economics more like evolutionary biology
 - 只有经历了强烈的情绪后，新的启发才出现
 - 市场越有效率，越难挣到钱
+
+### 2019-nCoV
+- 下行行业: 餐饮、酒店、房地产、零售业、旅游、教育
+- 受益行业: 债券市场、在线教育、无人配送、电影互联网化
