@@ -24,3 +24,12 @@
 ### rule of thumbs
 1. growth rates cannot persist forever
 
+
+### 实践
+
+- 深度摆盘、股票定价过程
+- 做空成交
+- 买盘、买盘力量对比指标
+- 价格涨跌幅度数据库
+- 价格涨跌时长数据库
+- 市场日历
