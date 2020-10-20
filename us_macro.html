@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <style>
+        hr {margin: 0;}
+    </style>
+</head>
+
+<body style="padding:5px 6%">
+    <!-- 失业数据 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=wTjp&width=100%&height=475" scrolling="no" frameborder="0"style="overflow:hidden;width:100%; height:460px;" allowTransparency="true" loading="lazy"></iframe>
+    <hr/>
+
+    <!-- 经济活动指数 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=wrls&width=100%&height=310" scrolling="no" frameborder="0"style="height:300px;width:100%" allowTransparency="true" loading="lazy"></iframe>
+    
+    <!-- 铜库存 -->
+    <div class="pure-g">
+        <div class="pure-u-1-1" id="COMEX:HG1!" style="height:300px;"></div>
+    </div>
+
+    <!-- 石油库存 -->
+    <iframe id="eia_widget" style="width:99.8%;height:500px;border:1px solid #dedede" src="https://www.eia.gov/opendata/embed/iframe.php?series_id=PET.RWTC.W;PET.WCRFPUS2.W;PET.WCESTUS1.W;&periods=6A" load="iframe_load"></iframe>
+
+    <!-- 美联储持仓 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=wTqr&width=100%&height=410" scrolling="no" frameborder="0"style="height:400px;width:100%" allowTransparency="true" loading="lazy"></iframe>
+
+    <!-- 美国国债利差 -->
+    <!-- <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=wrCj&width=100%&height=410" scrolling="no" frameborder="0"style="height:400px;width:100%" allowTransparency="true" loading="lazy"></iframe> -->
+</body>
+    
+<script type="text/javascript">
+const symbols = [
+    {
+        sym: "COMEX:HG1!",
+        range: "72M",
+        axis_use_log: false,
+    }
+];
+
+for (sym of symbols) {
+    createChart(sym);
+}
+
+function createChart(symobj) {
+    const sym = symobj.sym;
+    const range = symobj.range || 'ALL';
+    const axis_use_log = symobj.axis_use_log;
+    const options = {
+        "container_id": sym,
+        "autosize": true,
+        "symbol": sym,
+        "interval": "W",
+        "style": "2",
+        "overrides": {"mainSeriesProperties.priceAxisProperties.log": axis_use_log},
+        "range": range,
+        "hide_top_toolbar": true,
+        // "studies": ["MASimple@tv-basicstudies"],
+    };
+    return new TradingView.widget(options);
+}
+</script>
+</html>
+
