@@ -19,6 +19,8 @@
     <iframe width="100%" height="500" frameborder="0" scrolling="no" src="https://plotly.com/~dengwanc/899.embed?showlink=false"></iframe>
     <!-- 市场宽度 -->
     <iframe width="100%" height="500" frameborder="0" scrolling="no" src="https://plotly.com/~dengwanc/901.embed?showlink=false"></iframe>
+    <!-- 波动率指标 -->
+    <div id="SSE:000688" style="height:500px"></div>
     <!-- 行业宽度 -->
     <iframe width="100%" height="399" frameborder="0" scrolling="no" src="https://plotly.com/~dengwanc/1085.embed?showlink=false"></iframe>
     <!-- 热钱进入香港 -->
@@ -32,9 +34,16 @@ const symbols = [
     {
         sym: "USDHKD",
         range: "360M",
-        use_log: true,
+        // use_log: true,
         interval: "W",
     },
+    {
+        sym: "SSE:000688",
+        range: "36M",
+        // use_log: true,
+        interval: "D",
+        studies: ["ATR@tv-basicstudies", "HV@tv-basicstudies"],
+    }
 ];
 
 for (sym of symbols) {
@@ -44,17 +53,17 @@ for (sym of symbols) {
 function createChart(symobj) {
     const sym = symobj.sym;
     const range = symobj.range || 'ALL';
-    const axis_use_log = symobj.axis_use_log;
+    const axis_use_log = symobj.use_log;
     const options = {
         "container_id": sym,
         "autosize": true,
         "symbol": sym,
-        "interval": "W",
+        "interval": symobj.interval || "W",
         "style": "2",
         "overrides": {"mainSeriesProperties.priceAxisProperties.log": axis_use_log},
         "range": range,
         "hide_top_toolbar": true,
-        // "studies": ["MASimple@tv-basicstudies"],
+        "studies": symobj.studies || [],
     };
     return new TradingView.widget(options);
 }
