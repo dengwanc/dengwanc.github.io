@@ -26,7 +26,7 @@
     <!-- 人民币汇率 -->
     <iframe width="100%" height="370" src="https://app.koyfin.com/share/a185086c66/simple" frameBorder="0" style="margin-top: 5px;"></iframe>
     <!-- 波动率指标 -->
-    <div id="SSE:000688" style="height:399px"></div>
+    <!-- <div id="SSE:000688" style="height:399px"></div> -->
 </body>
     
 <script type="text/javascript">
@@ -37,13 +37,12 @@ const symbols = [
         // use_log: true,
         interval: "W",
     },
-    {
-        sym: "SSE:000688",
-        range: "36M",
-        // use_log: true,
-        interval: "D",
-        studies: ["HV@tv-basicstudies"],
-    }
+    // {
+    //     sym: "SSE:000688",
+    //     range: "36M",
+    //     interval: "D",
+    //     studies: ["HV@tv-basicstudies"],
+    // },
 ];
 
 for (sym of symbols) {
