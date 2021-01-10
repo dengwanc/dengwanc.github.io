@@ -1,0 +1,76 @@
+                     $FB Financial Analysis
+                     2016-12-31  2017-12-31  2018-12-31   2019-12-31
+Total Revenue        2.7638e+10  4.0653e+10  5.5838e+10   7.0697e+10
+Growth(YoY)                 NaN       0.471       0.374        0.266
+Cash From Operating  1.6108e+10  2.4216e+10  2.9274e+10   3.6314e+10
+CFO to Sales              0.583       0.596       0.524        0.514
+Cash                  8.903e+09   8.079e+09  1.0019e+10   1.9079e+10
+Total Assets         6.4961e+10  8.4524e+10  9.7334e+10  1.33376e+11
+Assets/Equity             1.097       1.137       1.157         1.32
+
+
+                     $DIS Financial Analysis
+                     2017-09-30  2018-09-29   2019-09-28   2020-10-03
+Total Revenue        5.5137e+10  5.9434e+10   6.9607e+10   6.5388e+10
+Growth(YoY)                 NaN       0.078        0.171       -0.061
+Cash From Operating  1.2343e+10  1.4295e+10    6.606e+09    7.618e+09
+CFO to Sales              0.224       0.241        0.095        0.117
+Cash                  4.017e+09    4.15e+09    5.418e+09   1.7914e+10
+Total Assets         9.5789e+10  9.8598e+10  1.93984e+11  2.01549e+11
+Assets/Equity             2.319       2.022        2.183        2.411
+
+
+                     $AMZN Financial Analysis
+                      2016-12-31   2017-12-31   2018-12-31   2019-12-31
+Total Revenue        1.35987e+11  1.77866e+11  2.32887e+11  2.80522e+11
+Growth(YoY)                  NaN        0.308        0.309        0.205
+Cash From Operating   1.7203e+10   1.8365e+10   3.0723e+10   3.8514e+10
+CFO to Sales               0.127        0.103        0.132        0.137
+Cash                  1.9334e+10   2.0522e+10    3.175e+10   3.6092e+10
+Total Assets          8.3402e+10   1.3131e+11  1.62648e+11  2.25248e+11
+Assets/Equity              4.325        4.739        3.735         3.63
+
+
+                     $GOOGL Financial Analysis
+                      2016-12-31   2017-12-31   2018-12-31   2019-12-31
+Total Revenue         9.0272e+10  1.10855e+11  1.36819e+11  1.61857e+11
+Growth(YoY)                  NaN        0.228        0.234        0.183
+Cash From Operating   3.6036e+10   3.7091e+10   4.7971e+10    5.452e+10
+CFO to Sales               0.399        0.335        0.351        0.337
+Cash                  1.2918e+10   1.0715e+10   1.6701e+10   1.8498e+10
+Total Assets         1.67497e+11  1.97295e+11  2.32792e+11  2.75909e+11
+Assets/Equity              1.205        1.294        1.311         1.37
+
+
+                     $ZM Financial Analysis
+                      2017-01-31   2018-01-31   2019-01-31   2020-01-31
+Total Revenue         6.0817e+07  1.51478e+08  3.30517e+08  6.22658e+08
+Growth(YoY)                  NaN        1.491        1.182        0.884
+Cash From Operating    9.361e+06   1.9426e+07   5.1332e+07  1.51892e+08
+CFO to Sales               0.154        0.128        0.155        0.244
+Cash                 1.34324e+08   3.6146e+07   6.3624e+07  2.83134e+08
+Total Assets         1.64796e+08  2.15019e+08  3.54565e+08  1.28984e+09
+Assets/Equity             -5.715       -8.062      -47.663        1.547
+
+
+                     $BABA Financial Analysis
+                      2017-03-31   2018-03-31   2019-03-31   2020-03-31
+Total Revenue        1.58273e+11  2.50266e+11  3.76844e+11  5.09711e+11
+Growth(YoY)                  NaN        0.581        0.506        0.353
+Cash From Operating   8.2854e+10  1.25805e+11  1.50975e+11  1.80607e+11
+CFO to Sales               0.523        0.503        0.401        0.354
+Cash                 1.43736e+11  1.99309e+11  1.89976e+11  3.30503e+11
+Total Assets         5.06812e+11  7.17124e+11  9.65076e+11  1.31298e+12
+Assets/Equity              1.818         1.96        1.961        1.738
+
+
+                     $FUTU Financial Analysis
+                      2016-12-31   2017-12-31   2018-12-31   2019-12-31
+Total Revenue         8.3556e+07  2.91784e+08  7.15719e+08  9.72317e+08
+Growth(YoY)                  NaN        2.492        1.453        0.359
+Cash From Operating  1.39769e+09  1.85533e+09  4.47017e+09  1.96943e+09
+CFO to Sales              16.728        6.359        6.246        2.026
+Cash                 1.79016e+08  3.75263e+08  2.15617e+08  3.62574e+08
+Total Assets         4.51748e+09  1.09239e+10  1.60629e+10  2.13999e+10
+Assets/Equity            -23.749      -46.904     -106.949        8.397
+
