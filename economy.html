@@ -4,89 +4,71 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Economy Overview</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
-    <!-- <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous"> -->
-    <!-- <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script> -->
     <style>
         hr {margin: 0;}
         iframe {border: 1px solid #dedede; float: left;}
     </style>
 </head>
 
-<body style="padding:5px 3%">
+<body style="padding:5px 3.5%">
+    <!-- PART1=政府部门 -->
     <!-- 利率 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CpHO&width=100%&height=400" scrolling="no" frameborder="0" style="overflow:hidden; width:100%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CqHi&width=100%&height=400" scrolling="no" frameborder="0" style="overflow:hidden; width:100%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
+    <!-- 赤字占GDP -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CqRn&width=49.84%&height=400" scrolling="no" frameborder="0" style="overflow:hidden; width:49.84%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
+    <!-- 税率 -->
+    <iframe width="49.84%" height="390" src="https://app.koyfin.com/share/51fc7965ec/simple" frameBorder="0"></iframe>
+    <!-- 赤字支出 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CqRs&width=49.84%&height=390" scrolling="no" frameborder="0" style="overflow:hidden; width:49.84%; height:380px;" allowTransparency="true" loading="lazy"></iframe>
+    <!-- 企业税 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CpHg&width=49.84%&height=390" scrolling="no" frameborder="0" style="width:49.84%; height:380px;" allowTransparency="true" loading="lazy"></iframe>
+    <!-- Tax revenue % of GDP -->
+    <!-- <iframe src="https://data.oecd.org/chart/6khk" width="49.84%" height="400" mozallowfullscreen="true" webkitallowfullscreen="true" allowfullscreen="true"></iframe> -->
+    <!-- Tax on personal income % of GDP -->
+    <!-- <iframe src="https://data.oecd.org/chart/6kk8" width="49.84%" height="400" mozallowfullscreen="true" webkitallowfullscreen="true" allowfullscreen="true"></iframe> -->
+    
+    <!-- PART2=企业部门 -->
     <!-- 企业债与失业 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Cpo1&width=100%&height=400" scrolling="no" frameborder="0" style="overflow:hidden; width:100%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
-    <!-- 政府、企业、居民负债率 -->
-    <!-- <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CnGx&width=49.84%&height=400" scrolling="no" frameborder="0" style="width:49.84%; height:390px;" allowTransparency="true" loading="lazy"></iframe> -->
-    <!-- 违约率 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CpG8&width=100%&height=400" scrolling="no" frameborder="0" style="width:100%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
-    <!-- 美林时钟 -->
-    <iframe width="100%" height="500" src="https://app.koyfin.com/share/a890854481/simple" frameBorder="0"></iframe>
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Cr1Z&width=100%&height=500" scrolling="no" frameborder="0" style="overflow:hidden; width:100%; height:490px;" allowTransparency="true" loading="lazy"></iframe>
+
+    <!-- PART3=居民部门 -->
+    <!-- 个人收入与储蓄 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Cr29&width=100%&height=450" scrolling="no" frameborder="0" style="width:100%; height:440px;" allowTransparency="true" loading="lazy"></iframe>
     <!-- 贫富差距-->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CpHR&width=49.84%&height=400" scrolling="no" frameborder="0" style="width:49.84%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CpHR&width=49.84%&height=450" scrolling="no" frameborder="0" style="width:49.84%; height:440px;" allowTransparency="true" loading="lazy"></iframe>
+    <!-- 居民负债率 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Cttd&width=49.84%&height=450" scrolling="no" frameborder="0" style="overflow:hidden; width:49.84%; height:440px;" allowTransparency="true" loading="lazy"></iframe>
+
+    <!-- PART3=通货膨胀 -->
+    <!-- CPI&PPI -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Cr1R&width=100%&height=450" scrolling="no" frameborder="0" style="overflow:hidden; width:100%; height:440px;" allowTransparency="true" loading="lazy"></iframe>
+    <!-- 工业金属 -->
+    <iframe width="49.84%" height="400" src="https://app.koyfin.com/share/988f4f4da3/simple" frameBorder="0"></iframe>
+    <!-- 油气 -->
+    <iframe width="49.84%" height="400" src="https://app.koyfin.com/share/e61c8d0882/simple" frameBorder="0"></iframe>
+    <!-- Grains -->
+    <iframe width="49.84%" height="450" src="https://app.koyfin.com/share/b3a3a3c96e/simple" frameBorder="0"></iframe>
+    <!-- Meats -->
+    <iframe width="49.84%" height="450" src="https://app.koyfin.com/share/850df037ed/simple" frameBorder="0"></iframe>
+
+    <!-- PART4=风险预警 -->
+    <!-- 违约率 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Cr2v&width=100%&height=400" scrolling="no" frameborder="0" style="width:100%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
     <!-- Today's Bubble -->
     <iframe width="49.84%" height="390" src="https://app.koyfin.com/share/64e9f3e895/simple" frameBorder="0"></iframe>
-    <!-- 个人收入与储蓄 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CpFQ&width=100%&height=400" scrolling="no" frameborder="0" style="width:100%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
-    <!-- PPI -->
-    <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstapropricha&v=202103262315V20200908&d1=19960403&title=PPI&h=650&w=1300' height='330' width='49.84%'  frameborder='0' scrolling='no'></iframe>
-    <!-- CPI -->
-    <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=cpi+yoy&v=202103262315V20200908&d1=19960403&title=false&url2=/united-states/nfib-business-optimism-index&h=650&w=1300' height='330' width='49.84%'  frameborder='0' scrolling='no'></iframe>
-    <!-- 税率 -->
-    <iframe width="49.84%" height="350" src="https://app.koyfin.com/share/51fc7965ec/simple" frameBorder="0"></iframe>
-    <!-- 个人税率区间 1920～2018 -->
-    <!-- <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CobK&width=49.84%&height=360" scrolling="no" frameborder="0" style="width:49.84%; height:350px;" allowTransparency="true" loading="lazy"></iframe> -->
-    <!-- 企业税 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=CpHg&width=49.84%&height=360" scrolling="no" frameborder="0" style="width:49.84%; height:350px;" allowTransparency="true" loading="lazy"></iframe>
-    <!-- Tax revenue % of GDP -->
-    <iframe src="https://data.oecd.org/chart/6khk" width="49.84%" height="400" mozallowfullscreen="true" webkitallowfullscreen="true" allowfullscreen="true"></iframe>
-    <!-- Tax on personal income % of GDP -->
-    <iframe src="https://data.oecd.org/chart/6kk8" width="49.84%" height="400" mozallowfullscreen="true" webkitallowfullscreen="true" allowfullscreen="true"></iframe>
+    <div style="width: 49.84%;height: 390px; float: left; border: 1px solid #dedede; ">
+        <div style="padding: 20px;">
+        <a href="https://www.trading-logic.com/MarketDashboard.html">Market Dashboard</a>
+        </div>
+    </div>
+
+    <!-- PART5=市场方向 -->
+    <!-- 美林时钟 -->
+    <iframe width="100%" height="600" src="https://app.koyfin.com/share/a890854481/simple"></iframe>
+    <!-- 成长价值 -->
+    <iframe width="49.84%" height="400" src="https://app.koyfin.com/share/068397eec4/simple" frameBorder="0"></iframe>
+    <!-- 小盘股 -->
+    <iframe width="49.84%" height="400" src="https://app.koyfin.com/share/1eda2cc7ae/simple" frameBorder="0"></iframe>
 </body>
-    
-<script type="text/javascript">
-const symbols = [
-    // {
-    //     sym: "USDHKD",
-    //     range: "360M",
-    //     // use_log: true,
-    //     interval: "W",
-    // },
-    // {
-    //     sym: "INDEX:BDI",
-    //     range: "180M",
-    //     use_log: true,
-    //     interval: "W",
-    // },
-    // {
-    //     sym: "SSE:000688",
-    //     range: "36M",
-    //     interval: "D",
-    //     studies: ["HV@tv-basicstudies"],
-    // },
-];
-
-for (sym of symbols) {
-    createChart(sym);
-}
-
-function createChart(symobj) {
-    const sym = symobj.sym;
-    const range = symobj.range || 'ALL';
-    const axis_use_log = symobj.use_log;
-    const options = {
-        "container_id": sym,
-        "autosize": true,
-        "symbol": sym,
-        "interval": symobj.interval || "W",
-        "style": "2",
-        "overrides": {"mainSeriesProperties.priceAxisProperties.log": axis_use_log},
-        "range": range,
-        "hide_top_toolbar": true,
-        "studies": symobj.studies || [],
-    };
-    return new TradingView.widget(options);
-}
 </script>
 </html>
