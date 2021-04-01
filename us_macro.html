@@ -4,43 +4,43 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>US Macro Environment</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous"> -->
+    <!-- <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script> -->
     <style>
-        hr {margin: 0;}
+        iframe {border: 1px solid #dedede; float: left;}
     </style>
 </head>
 
-<body style="padding:5px 6%">
+<body style="padding:5px 5%">
     <!-- 疫情数据 -->
-    <!-- <iframe src="https://public.domo.com/cards/azrGr" width="100%" height="500" marginheight="0" marginwidth="0" frameborder="0" style="border: 1px solid #dedede"></iframe> -->
+    <iframe src="https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=40..latest&pickerSort=desc&pickerMetric=new_cases_per_million&Metric=Confirmed+cases&Interval=7-day+rolling+average&Relative+to+Population=true&Align+outbreaks=false&country=IND~USA~GBR~CAN~DEU~FRA~JPN~BRA&hideControls=true" loading="lazy" style="width: 100%; height: 460px; border: 0px none;"></iframe>
+    <iframe src="https://ourworldindata.org/grapher/covid-vaccination-doses-per-capita?time=latest" loading="lazy" style="width: 49.84%; height: 500px; border: 0px none;"></iframe>
+    <iframe src="https://ourworldindata.org/grapher/covid-stringency-index" loading="lazy" style="width: 49.84%; height: 500px; border: 0px none;"></iframe>
 
     <!-- 失业数据 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=xkfc&width=100%&height=390px" scrolling="no" frameborder="0" style="overflow:hidden;width:100%; height:380px;" allowTransparency="true" loading="lazy"></iframe>
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=xkfc&width=49.84%&height=400px" scrolling="no" frameborder="0" style="overflow:hidden;width:49.84%; height:380px;" allowTransparency="true" loading="lazy"></iframe>
     <!-- 同店销售 -->
-    <iframe width="100%" height="330" src="https://app.koyfin.com/share/4b7e8aeff8/simple" frameBorder="0" style="border: 1px solid #dedede"></iframe>
+    <iframe width="49.84%" height="380" src="https://app.koyfin.com/share/4b7e8aeff8/simple" frameBorder="0" style="border: 1px solid #dedede"></iframe>
     <!-- 经济活动WEI指数 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=wrls&width=100%&height=310" scrolling="no" frameborder="0"style="height:300px;width:100%" allowTransparency="true" loading="lazy"></iframe>
-    <!-- 铜库存 -->
-    <div class="pure-g">
-        <div class="pure-u-1-1" id="COMEX:HG1!" style="height:300px;"></div>
-    </div>
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=wrls&width=49.84%&height=400" scrolling="no" frameborder="0"style="height:390px;width:49.84%" allowTransparency="true" loading="lazy"></iframe>
+    <!-- 美联储持仓 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=xkih&width=49.84%&height=400" scrolling="no" frameborder="0"style="height:390px;width:49.84%" allowTransparency="true" loading="lazy"></iframe>
+    
     <!-- 石油库存 https://www.eia.gov/opendata/embed.php?geoset_id=&type=chart&relation_mode=line&series_id=PET.RWTC.W%3BPET.WCRFPUS2.W%3BPET.WCESTUS1.W%3B&date_mode=periods&start=&end=&periods=10A -->
     <iframe id="eia_widget" style="width:99.8%;height:500px;border:1px solid #dedede" src="https://www.eia.gov/opendata/embed/iframe.php?series_id=PET.RWTC.W;PET.WCRFPUS2.W;PET.WCESTUS1.W;&periods=6A" load="iframe_load"></iframe>
     <!-- 黄金 -->
     <iframe width="99.8%" height="399" frameborder="0" scrolling="no" src="https://plotly.com/~dengwanc/1592.embed?showlink=false" style="border: 1px solid #dedede;"></iframe>
-    <!-- 盈亏平衡通胀率(Breakeven Inflation Rate)-->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=BPdK&width=100%&height=390" scrolling="no" frameborder="0" style="height:380px;width:100%" allowTransparency="true" loading="lazy"></iframe>
-    <!-- 美联储持仓 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=xkih&width=100%&height=410" scrolling="no" frameborder="0"style="height:400px;width:100%" allowTransparency="true" loading="lazy"></iframe>
+    <iframe width="99.8%" height="600" src="https://app.koyfin.com/share/71069f9476/simple" frameBorder="0"></iframe>
+    
+    <!-- 铜库存 -->
+    <!-- <div class="pure-g"><div class="pure-u-1-1" id="COMEX:HG1!" style="height:300px;"></div></div> -->
+
     <!-- 全球流动性指标 -->
-    <div id="BTCUSD" style="height:320px"></div>
+    <!-- <div id="BTCUSD" style="height:320px"></div> -->
     <!-- 商品指数 Refinitiv/CoreCommodity CRB Index -->
-    <iframe width="100%" height="399" src="https://app.koyfin.com/share/750fe90dd3/simple" frameBorder="0" style="border: 1px solid #dedede"></iframe>
+    <!-- <iframe width="100%" height="399" src="https://app.koyfin.com/share/750fe90dd3/simple" frameBorder="0" style="border: 1px solid #dedede"></iframe> -->
     <!-- 农产品周期 -->
-    <iframe width="100%" height="399" src="https://app.koyfin.com/share/dd8511860d/simple" frameBorder="0" style="border: 1px solid #dedede"></iframe>
-    <!-- 美国国债利差 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=BAdH&width=100%&height=390" scrolling="no" frameborder="0" style="width:100%; height:360px;" allowTransparency="true" loading="lazy"></iframe>
+    <!-- <iframe width="100%" height="399" src="https://app.koyfin.com/share/dd8511860d/simple" frameBorder="0" style="border: 1px solid #dedede"></iframe> -->
     
     <!-- VIX -->
     <!-- <iframe height="360" width="950" src="https://ssltvc.forexprostools.com/?pair_ID=8884&height=390&width=950&interval=week&plotStyle=area&domain_ID=6&lang_ID=6&timezone_ID=0"></iframe> -->
@@ -50,18 +50,18 @@
     
 <script type="text/javascript">
 const symbols = [
-    {
-        sym: "COMEX:HG1!",
-        range: "250M",
-        interval: "W",
-        use_log: true,
-    },
-    {
-        sym: "BTCUSD",
-        range: "88M",
-        interval: "W",
-        use_log: true,
-    },
+    // {
+    //     sym: "COMEX:HG1!",
+    //     range: "250M",
+    //     interval: "W",
+    //     use_log: true,
+    // },
+    // {
+    //     sym: "BTCUSD",
+    //     range: "88M",
+    //     interval: "W",
+    //     use_log: true,
+    // },
 ];
 
 for (sym of symbols) {
