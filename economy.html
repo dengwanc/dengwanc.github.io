@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Economy Overview</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <style>
         hr {margin: 0;}
         iframe {border: 1px solid #dedede; float: left;}
@@ -53,11 +54,47 @@
     <!-- Meats -->
     <iframe width="49.84%" height="450" src="https://app.koyfin.com/share/850df037ed/simple" frameBorder="0"></iframe>
     <!-- BDI 指数 -->
-    <iframe width="49.84%" height="350" src="https://app.koyfin.com/share/e22a05a344/simple" frameBorder="0"></iframe>
+    <div id="INDEX:BDI" style="height:320px; width:50%; float:left"></div>
     <!-- 集装箱运价指数 -->
     <div rameborder="0" style="float:left;border: 1px solid #dedede;width:49.84%;height:350px;">
         <img src="https://www.sse.net.cn/index/indexImg?name=ccfi&type=query" style="display:block;margin:55px auto;width: 100%;"/>
     </div>
 </body>
+<script type="text/javascript">
+    const symbols = [
+        {
+            sym: "INDEX:BDI",
+            range: "300M",
+            use_log: true,
+            interval: "W",
+        },
+        // {
+        //     sym: "SSE:000688",
+        //     range: "36M",
+        //     interval: "D",
+        //     studies: ["HV@tv-basicstudies"],
+        // },
+    ];
+    
+    for (sym of symbols) {
+        createChart(sym);
+    }
+    function createChart(symobj) {
+    const sym = symobj.sym;
+    const range = symobj.range || 'ALL';
+    const axis_use_log = symobj.use_log;
+    const options = {
+        "container_id": sym,
+        "autosize": true,
+        "symbol": sym,
+        "interval": symobj.interval || "W",
+        "style": "2",
+        "overrides": {"mainSeriesProperties.priceAxisProperties.log": axis_use_log},
+        "range": range,
+        "hide_top_toolbar": true,
+        "studies": symobj.studies || [],
+    };
+    return new TradingView.widget(options);
+}
 </script>
 </html>
