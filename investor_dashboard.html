@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Personal Investment Dashboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <style>
+        iframe {border: 1px solid #dedede; float: left;}
+    </style>
+</head>
+
+<body style="padding:5px 3%">
+    <!-- 疫情数据 -->
+    <iframe src="https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=2020-03-01..latest&pickerSort=desc&pickerMetric=new_cases_smoothed&hideControls=true&Metric=Confirmed+cases&Interval=7-day+rolling+average&Relative+to+Population=false&Align+outbreaks=false&country=IND~USA~Europe~OWID_WRL" loading="lazy" style="width: 49.84%; height: 450px; border: 0px none;"></iframe>
+    <iframe src="https://ourworldindata.org/grapher/share-people-vaccinated-covid?tab=chart&time=latest" loading="lazy" style="width: 49.84%; height: 450px; border: 0px none;"></iframe>
+
+    <!-- 就业数据 -->
+
+    <!-- 经济活动指数 -->
+
+    <!-- 美联储目标 -->
+    <!-- 美联储QE -->
+
+    <!-- 铜基本面 HGmain FCX XME RIO -->
+    <iframe width="65%" height="470" src="https://app.koyfin.com/share/5adc56a8f0/simple"></iframe>
+    <div rameborder="0" style="float:left;border: 1px solid #dedede;width:34.7%;height:470px;">
+        <img src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-5y-Large.gif" style="display:block;margin:90px auto;width: 100%;">
+    </div>
+    <div rameborder="0" style="float:left;border: 1px solid #dedede;width:49.84%;height:300px;">
+        <img src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-60d-Large.gif" style="display:block;margin:auto;width: 70%;">
+    </div>
+    <div rameborder="0" style="float:left;border: 1px solid #dedede;width:49.84%;height:300px;">
+        <img src="http://www.kitconet.com/charts/metals/base/nymex-warehouse-copper-60d-Large.gif" style="display:block;margin:auto;width:70%;">
+    </div>
+
+    <!-- 制造业基本面 -->
+    <iframe width="49.84%" height="470" src="https://app.koyfin.com/share/3fcb4fdfa0/simple"></iframe>
+
+    <!-- 原油基本面 -->
+
+    <!-- 交通运输基本面 -->
+
+    <!-- 消费零售基本面 -->
+
+    <!-- 不动产基本面 -->
+
+    <!-- 银行基本面 -->
+
+    <!-- 黄金基本面 -->
+    <iframe width="49.84%" height="470" src="https://app.koyfin.com/share/cca62a88e0/simple"></iframe>
+
+    <!-- 资产轮动:债券vs股票, 商品vs股票, 成长vs价值, 小盘vs大盘, 不动产vs股票 -->
+    <iframe width="99.8%" height="470" src="https://app.koyfin.com/share/9b6816d886/simple" frameBorder="0"></iframe>
+</body>
+    
+<script type="text/javascript">
+// const symbols = [
+//     {
+//         sym: "IWM/SPY",
+//         range: "36M",
+//         interval: "D",
+//     },
+// ];
+
+for (sym of symbols) {
+    createChart(sym);
+}
+
+function createChart(symobj) {
+    const sym = symobj.sym;
+    const use_log = symobj.use_log;
+    const defalut = {
+        "container_id": sym,
+        "autosize": true,
+        "symbol": sym,
+        "interval": "D",
+        "style": "2",
+        // https://github.com/serdimoa/charting/wiki/Widget-Constructor
+        "overrides": {"mainSeriesProperties.priceAxisProperties.log": use_log},
+        "range": "ALL",
+        "hide_top_toolbar": true,
+        "theme": "light",
+    }
+    const options = Object.assign(defalut, symobj)
+    return new TradingView.widget(options);
+}
+</script>
+</html>
+
