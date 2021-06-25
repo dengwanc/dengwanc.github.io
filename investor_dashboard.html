@@ -6,7 +6,33 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <style>
-        iframe {border: 1px solid #dedede; float: left;}
+        iframe {
+            border: 1px solid #dedede; 
+            float: left;
+        }
+        .half {
+            float:left;
+            border: 1px solid #dedede;
+            width:49.84%;
+            height:420px;
+        }
+        .small {
+            float: left;
+            display:block;
+            margin:auto;
+            width:50%;
+        }
+        /* #copper:hover {
+            position: relative;
+        }
+        #copper:hover::after {
+            content:url(http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-5y-Large.gif);
+            display: block;
+            position: absolute;
+            left: 0px;
+            top:  0px;
+            transform: scale(.5);
+        } */
     </style>
 </head>
 
@@ -16,32 +42,34 @@
     <iframe src="https://ourworldindata.org/grapher/share-people-vaccinated-covid?tab=chart&time=latest" loading="lazy" style="width: 49.84%; height: 450px; border: 0px none;"></iframe>
 
     <!-- 就业数据 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=EZAD&width=49.84%&height=400px" scrolling="no" frameborder="0" style="overflow:hidden;width:49.84%; height:380px;" allowTransparency="true" loading="lazy"></iframe>
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=EZES&width=49.84%&height=400px" scrolling="no" frameborder="0" style="overflow:hidden;width:49.84%; height:380px;" allowTransparency="true" loading="lazy"></iframe>
 
     <!-- 经济活动指数 -->
-
-    <!-- 美联储目标 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=EZEy&width=49.84%&height=400" scrolling="no" frameborder="0"style="height:390px;width:49.84%" allowTransparency="true" loading="lazy"></iframe>
+    
     <!-- 美联储QE -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Ew5G&width=49.84%&height=400" scrolling="no" frameborder="0"style="height:390px;width:49.84%" allowTransparency="true" loading="lazy"></iframe>
 
     <!-- 铜基本面 HGmain FCX XME RIO -->
-    <iframe width="65%" height="470" src="https://app.koyfin.com/share/5adc56a8f0/simple"></iframe>
-    <div rameborder="0" style="float:left;border: 1px solid #dedede;width:34.7%;height:470px;">
-        <img src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-5y-Large.gif" style="display:block;margin:90px auto;width: 100%;">
-    </div>
-    <div rameborder="0" style="float:left;border: 1px solid #dedede;width:49.84%;height:300px;">
-        <img src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-60d-Large.gif" style="display:block;margin:auto;width: 70%;">
-    </div>
-    <div rameborder="0" style="float:left;border: 1px solid #dedede;width:49.84%;height:300px;">
-        <img src="http://www.kitconet.com/charts/metals/base/nymex-warehouse-copper-60d-Large.gif" style="display:block;margin:auto;width:70%;">
+    <iframe width="49.84%" height="420" src="https://app.koyfin.com/share/55fea92153/simple"></iframe>
+    <div class="half" id="copper">
+        <img class="small" src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-5y-Large.gif">
+        <img class="small" src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-60d-Large.gif">
+        <img class="small" style="visibility: hidden;" src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-60d-Large.gif">
+        <img class="small" src="http://www.kitconet.com/charts/metals/base/nymex-warehouse-copper-60d-Large.gif">
     </div>
 
     <!-- 制造业基本面 -->
-    <iframe width="49.84%" height="470" src="https://app.koyfin.com/share/3fcb4fdfa0/simple"></iframe>
+    <iframe width="49.84%" height="450" src="https://app.koyfin.com/share/119a110ed1/simple"></iframe>
 
-    <!-- 原油基本面 -->
+    <!-- 原油基本面 https://www.eia.gov/opendata/embed.php?geoset_id=&type=chart&relation_mode=line&series_id=PET.RWTC.W%3BPET.WCRFPUS2.W%3BPET.WCESTUS1.W%3B&date_mode=periods&start=&end=&periods=10A -->
+    <iframe id="eia_widget" style="width:49.84%;height:450px" src="https://www.eia.gov/opendata/embed/iframe.php?series_id=PET.RWTC.W;PET.WCRFPUS2.W;PET.WCESTUS1.W;&periods=20A" load="iframe_load"></iframe>
 
     <!-- 交通运输基本面 -->
 
     <!-- 消费零售基本面 -->
+    <iframe width="99.84%" height="450" src="https://app.koyfin.com/share/efb254234f/simple"></iframe>
 
     <!-- 不动产基本面 -->
 
@@ -51,7 +79,7 @@
     <iframe width="49.84%" height="470" src="https://app.koyfin.com/share/cca62a88e0/simple"></iframe>
 
     <!-- 资产轮动:债券vs股票, 商品vs股票, 成长vs价值, 小盘vs大盘, 不动产vs股票 -->
-    <iframe width="99.8%" height="470" src="https://app.koyfin.com/share/9b6816d886/simple" frameBorder="0"></iframe>
+    <iframe width="49.84%" height="470" src="https://app.koyfin.com/share/c48d4b7176/simple" frameBorder="0"></iframe>
 </body>
     
 <script type="text/javascript">
