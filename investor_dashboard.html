@@ -34,10 +34,13 @@
     <iframe src="https://ourworldindata.org/grapher/share-people-vaccinated-covid?tab=chart&time=latest" loading="lazy" style="width: 49.84%; height: 450px; border: 0px none;"></iframe>
 
     <!-- 交通运输基本面 -->
-    <div id="INDEX:BDI" style="height:350px; width:50%; float:left"></div>
+    <div style="height:400px; width:50%; float:left">
+        <div id="INDEX:BDI" style="height:200px;"></div>
+        <div id="601919" style="height:200px;"></div>
+    </div>
     <!-- 集装箱运价指数 -->
-    <div style="float:left;border: 1px solid #dedede;width:49.84%;height:350px;">
-        <img src="https://www.sse.net.cn/index/indexImg?name=ccfi&type=query" style="display:block;margin:60px auto;width: 100%;"/>
+    <div style="float:left;border: 1px solid #dedede;width:49.84%;height:400px;">
+        <img src="https://www.sse.net.cn/index/indexImg?name=ccfi&type=query" style="display:block;margin:80px auto;width: 100%;"/>
     </div>
 
     <!-- 就业数据 -->
@@ -79,18 +82,25 @@
     <!-- 银行基本面 -->
 
     <!-- 黄金基本面 -->
-    <iframe width="49.84%" height="450" src="https://app.koyfin.com/share/cca62a88e0/simple"></iframe>
+    <iframe width="49.84%" height="450" src="https://app.koyfin.com/share/4bf2a86574/simple"></iframe>
     <iframe width="49.8%" height="450" frameborder="0" scrolling="no" src="https://plotly.com/~dengwanc/1592.embed?showlink=false" style="border: 1px solid #dedede;"></iframe>
 
-    <!-- 资产轮动:债券vs股票, 商品vs股票, 成长vs价值, 小盘vs大盘, 不动产vs股票 -->
-    <iframe width="99.84%%" height="500" src="https://app.koyfin.com/share/b6c816c301/simple" frameBorder="0"></iframe>
+    <!-- 资产轮动:债券, 商品, 金融, 小盘, 不动产 -->
+    <iframe width="49.8%" height="400" src="https://app.koyfin.com/share/b6c816c301/simple" frameBorder="0"></iframe>
+    <div id="BINANCE:BTCUSDT" style="height:400px; width:50%; float:left"></div>
 </body>
     
 <script type="text/javascript">
 const symbols = [
     {
         sym: "INDEX:BDI",
-        range: "300M",
+        range: "165M",
+        use_log: true,
+        interval: "W",
+    },
+    {
+        sym: "601919",
+        range: "165M",
         use_log: true,
         interval: "W",
     },
@@ -98,6 +108,17 @@ const symbols = [
         sym: "NYMEX:CL1!-NYMEX:CL2!",
         range: "120M",
         interval: "W",
+    },
+    {
+        sym: "BINANCE:BTCUSDT",
+        range: "12M",
+        use_log: true,
+        interval: "D",
+        style: "1",
+        studies: [
+            "MAExp@tv-basicstudies",
+            "MASimple@tv-basicstudies",
+        ],
     },
 ];
 
