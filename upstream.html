@@ -29,6 +29,7 @@
 </head>
 
 <body style="padding:5px 3%">
+
     <!-- 黄金基本面 -->
     <iframe width="49.84%" height="450" src="https://app.koyfin.com/share/4bf2a86574/simple"></iframe>
     <iframe width="49.8%" height="450" frameborder="0" scrolling="no" src="https://plotly.com/~dengwanc/1592.embed?showlink=false" style="border: 1px solid #dedede;"></iframe>
@@ -50,10 +51,32 @@
     <div id="NYMEX:CL1!-NYMEX:CL2!" style="height:452px; width:49.84%; float:left"></div>
     <!-- <img class="small edge" src="https://visualizedanalytics.com/private/supply_demand_balance_world_oil_market.png"/> -->
     <!-- <img class="small edge" src="https://visualizedanalytics.com/private/oecd_stock_vs_brent_price.png"/> -->
+
+    <!-- 运输成本 -->
+    <div style="height:400px; width:50%; float:left">
+        <div id="INDEX:BDI" style="height:200px;"></div>
+        <div id="601919" style="height:200px;"></div>
+    </div>
+    <!-- 集装箱运价指数 -->
+    <div style="float:left;border: 1px solid #dedede;width:49.84%;height:400px;">
+        <img src="https://www.sse.net.cn/index/indexImg?name=ccfi&type=query" style="display:block;margin:80px auto;width: 100%;"/>
+    </div>
 </body>
     
 <script type="text/javascript">
 const symbols = [
+    {
+        sym: "INDEX:BDI",
+        range: "165M",
+        use_log: true,
+        interval: "W",
+    },
+    {
+        sym: "601919",
+        range: "165M",
+        use_log: true,
+        interval: "W",
+    },
     {
         sym: "NYMEX:CL1!-NYMEX:CL2!",
         range: "120M",
