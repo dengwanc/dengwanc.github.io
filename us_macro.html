@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Personal Investment Dashboard</title>
+    <title>US Macro Dashboard</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <style>
@@ -29,6 +29,39 @@
 </head>
 
 <body style="padding:5px 3%">
+    <!-- 金融危机预警 -->
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=GXhG&width=100%&height=450" scrolling="no" frameborder="0" style="width:100%; height:430px;" allowTransparency="true" loading="lazy"></iframe>
+
+    
+    <!-- 上游成本 -->
+    <!-- 黄金基本面 -->
+    <iframe width="49.84%" height="462" src="https://app.koyfin.com/share/33c43e8012/simple"></iframe>
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=FQYf&width=49.84%&height=285" scrolling="no" frameborder="0"style="height:275px;width:49.84%" allowTransparency="true" loading="lazy"></iframe>
+    <iframe width="49.8%" height="185" frameborder="0" scrolling="no" src="https://plotly.com/~dengwanc/1592.embed?showlink=false" style="border: 1px solid #dedede;"></iframe>
+    
+    <!-- 铜基本面 HGmain FCX XME RIO -->
+    <iframe width="49.84%" height="420" src="https://app.koyfin.com/share/ca87577a60/simple"></iframe>
+    <div class="half" id="copper">
+        <img class="small" src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-5y-Large.gif">
+        <img class="small" src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-60d-Large.gif">
+        <img class="small" style="visibility: hidden;" src="http://www.kitconet.com/charts/metals/base/lme-warehouse-copper-60d-Large.gif">
+        <img class="small" src="http://www.kitconet.com/charts/metals/base/nymex-warehouse-copper-60d-Large.gif">
+    </div>
+
+    <!-- 原油基本面 -->
+    <!-- https://visualizedanalytics.com/markets/commodities/analytics/BZ#supply-demand-and-balance-of-the-world-oil-market -->
+    <!-- https://www.eia.gov/opendata/qb.php?category=235081 -->
+    <iframe id="eia_widget" style="width:49.84%;height:450px;border:1px solid #dedede" src="https://www.eia.gov/opendata/embed/iframe.php?series_id=PET.RWTC.W;PET.WCRFPUS2.W;PET.WCESTUS1.W;&periods=6A" load="iframe_load"></iframe>
+    <div id="NYMEX:CL1!-NYMEX:CL2!" style="height:452px; width:49.84%; float:left"></div>
+
+    <!-- 运输成本 -->
+    <iframe width="49.84%" height="450" src="https://app.koyfin.com/share/3a5b2b9667/simple"></iframe>
+    <!-- 集装箱运价指数 -->
+    <div style="float:left;border: 1px solid #dedede;width:49.84%;height:450px;">
+        <img src="https://www.sse.net.cn/index/indexImg?name=ccfi&type=query" style="display:block;margin:100px auto;width: 100%;"/>
+    </div>
+    
+    
     <!-- 高频宏观数据 -->
     <!-- 疫情数据 -->
     <iframe src="https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=2020-03-01..latest&pickerSort=desc&pickerMetric=new_cases_smoothed&hideControls=true&Metric=Confirmed+cases&Interval=7-day+rolling+average&Relative+to+Population=false&Align+outbreaks=false&country=IND~USA~Europe~OWID_WRL" loading="lazy" style="width: 49.84%; height: 420px; border: 0px none;"></iframe>
@@ -36,7 +69,7 @@
     <iframe src="https://ourworldindata.org/grapher/share-people-vaccinated-covid?tab=chart&time=latest" loading="lazy" style="width: 49.84%; height: 420px; border: 0px none;"></iframe>
 
     <!-- 就业数据 -->
-    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=EZAD&width=49.84%&height=400" scrolling="no" frameborder="0" style="overflow:hidden;width:49.84%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
+    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=GXjl&width=49.84%&height=400" scrolling="no" frameborder="0" style="overflow:hidden;width:49.84%; height:390px;" allowTransparency="true" loading="lazy"></iframe>
 
     <!-- 美联储QE -->
     <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=Ew5G&width=49.84%&height=400" scrolling="no" frameborder="0"style="height:390px;width:49.84%" allowTransparency="true" loading="lazy"></iframe>
@@ -55,13 +88,15 @@
 
     <!-- 主要走势观察 -->
     <iframe width="100%" height="290" frameborder="0" scrolling="no" src="https://plotly.com/~dengwanc/3270.embed?showlink=false"></iframe>
-
-    <!-- 比特币 -->
-    <!-- <div id="BINANCE:BTCUSDT" style="height:400px; width:50%; float:left"></div> -->
 </body>
     
 <script type="text/javascript">
 const symbols = [
+    {
+        sym: "NYMEX:CL1!-NYMEX:CL2!",
+        range: "120M",
+        interval: "W",
+    },
     // {
     //     sym: "INDEX:BDI",
     //     range: "165M",
