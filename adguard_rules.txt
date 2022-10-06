@@ -1,0 +1,30 @@
+seekingalpha.com###offer_bf00a2d9dbdf6d112b4e-0
+seekingalpha.com###root > div.__03b0b-17sIY.__03b0b-2Z2Qt.__03b0b-3cLcx.__03b0b-1qMpD:first-child > div.__03b0b-rHTSy:nth-child(3) > div.sticky-piano-placeholder > div.tp-container-inner
+||experience.tinypass.com/xbuilder/experience/execute?aid=*$domain=seekingalpha.com
+||c2.piano.io/xbuilder/experience/execute?aid=*$domain=seekingalpha.com
+
+ivolatility.com##div:nth-child(3) > div.container-fluid:last-child > div.row:last-child > div.main-content.col-md-10.col-sm-12.col-xs-12:nth-child(2) > a:nth-child(4) > img
+
+! IV Rank >= 80%
+! barchart.com###main-content-column > div.column-inner > div.barchart-content-block.invisible.border-top-0.visible:last-child > div.bc-datatable > div.bc-table-wrapper.no-top-border.symbol-details.links-enabled.set-min-height.sticky-row.table-size-20:nth-child(2) > div.bc-table-scrollable > div.bc-table-scrollable-inner > ng-transclude:first-child > table > tbody:nth-child(2) > tr:has(td.optionsImpliedVolatilityRank1y:contains(/[1234567]\d.\d\d%/))
+! volume >= 10,000
+! barchart.com###main-content-column > div.column-inner > div.barchart-content-block.invisible.border-top-0.visible:last-child > div.bc-datatable > div.bc-table-wrapper.no-top-border.symbol-details.links-enabled.set-min-height.sticky-row.table-size-20:nth-child(2) > div.bc-table-scrollable > div.bc-table-scrollable-inner > ng-transclude:first-child > table > tbody:nth-child(2) > tr:has(td.optionsTotalVolume span:contains(/^\d,\d+$/))
+! volume >= 20,000
+! barchart.com###main-content-column > div.column-inner > div.barchart-content-block.invisible.border-top-0.visible:last-child > div.bc-datatable > div.bc-table-wrapper.no-top-border.symbol-details.links-enabled.set-min-height.sticky-row.table-size-20:nth-child(2) > div.bc-table-scrollable > div.bc-table-scrollable-inner > ng-transclude:first-child > table > tbody:nth-child(2) > tr:has(td.optionsTotalVolume span:contains(/^[1]\d,\d+$/))
+! %Chg > 6%
+! barchart.com###main-content-column > div.column-inner > div.barchart-content-block.invisible.border-top-0.visible:last-child > div.bc-datatable > div.bc-table-wrapper.no-top-border.symbol-details.links-enabled.set-min-height.sticky-row.table-size-20:nth-child(2) > div.bc-table-scrollable > div.bc-table-scrollable-inner > ng-transclude:first-child > table > tbody:nth-child(2) > tr:has(td.percentChange span:contains(/^[+-][012345].\d+%$/))
+! barchart.com###main-content-column > div.column-inner > div.barchart-content-block.invisible.border-top-0.visible:last-child > div.bc-datatable > div.bc-table-wrapper.no-top-border.symbol-details.links-enabled.set-min-height.sticky-row.table-size-20:nth-child(2) > div.bc-table-scrollable > div.bc-table-scrollable-inner > ng-transclude:first-child > table > tbody:nth-child(2) > tr:has(td.percentChange span:contains(/^unch/))
+
+!Currency
+!trading-logic.com##div.col-lg-5.c1 > div:nth-child(9) > div.ReactTable.css-n9xshi.rt-borderless > div.rt-table.css-bae3r4:first-child
+!Commodity
+!trading-logic.com###mdb-accordion > div.container-fluid:nth-child(3) > div.gutter-2.row > div.col-lg-5.c1-c2:first-child > div.col-lg-7.c2:last-child
+!Thematic
+!trading-logic.com##div.col-lg-6.c3 > div:nth-child(7) > div.ReactTable.css-n9xshi.rt-borderless > div.rt-table.css-bae3r4:first-child
+
+!dataroma.com###grid > tbody:last-child > tr:has(td:contains(/^10%/))
+
+edition.cnn.com##div.ad-slot-header:nth-child(2)
+tradingview.com##div:last-child > div > div > div > article
+finviz.com###banner_position > div > a > img
+finviz.com###screener-content > div > a > img
