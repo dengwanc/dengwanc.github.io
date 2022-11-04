@@ -4,6 +4,13 @@ seekingalpha.com###root > div.__03b0b-17sIY.__03b0b-2Z2Qt.__03b0b-3cLcx.__03b0b-
 ||c2.piano.io/xbuilder/experience/execute?aid=*$domain=seekingalpha.com
 
 ivolatility.com##div:nth-child(3) > div.container-fluid:last-child > div.row:last-child > div.main-content.col-md-10.col-sm-12.col-xs-12:nth-child(2) > a:nth-child(4) > img
+edition.cnn.com##div.ad-slot-header:nth-child(2)
+tradingview.com##div:last-child > div > div > div > article
+finviz.com###banner_position > div > a > img
+finviz.com###screener-content > div > a > img
+finviz.com##div.content:nth-child(11) > div.fv-container > table:first-child > tbody > tr > td > div.my-3:nth-child(2)
+finviz.com##div.content:nth-child(11) > div.fv-container > table:nth-child(3) > tbody > tr:nth-child(2) > td
+sg.docs.wps.com##div.kma-web-to-pc.kso-microApp__container > div.edit-on-pc_wrap > div.open-client-tip_top
 
 ! IV Rank >= 80%
 ! barchart.com###main-content-column > div.column-inner > div.barchart-content-block.invisible.border-top-0.visible:last-child > div.bc-datatable > div.bc-table-wrapper.no-top-border.symbol-details.links-enabled.set-min-height.sticky-row.table-size-20:nth-child(2) > div.bc-table-scrollable > div.bc-table-scrollable-inner > ng-transclude:first-child > table > tbody:nth-child(2) > tr:has(td.optionsImpliedVolatilityRank1y:contains(/[1234567]\d.\d\d%/))
@@ -23,8 +30,3 @@ ivolatility.com##div:nth-child(3) > div.container-fluid:last-child > div.row:las
 !trading-logic.com##div.col-lg-6.c3 > div:nth-child(7) > div.ReactTable.css-n9xshi.rt-borderless > div.rt-table.css-bae3r4:first-child
 
 !dataroma.com###grid > tbody:last-child > tr:has(td:contains(/^10%/))
-
-edition.cnn.com##div.ad-slot-header:nth-child(2)
-tradingview.com##div:last-child > div > div > div > article
-finviz.com###banner_position > div > a > img
-finviz.com###screener-content > div > a > img
